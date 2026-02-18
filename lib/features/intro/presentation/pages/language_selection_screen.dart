@@ -49,7 +49,7 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
                   
                   // Central Illustration
                   Image.asset(
-                    'assets/images/language_illustration.png',
+                    'assets/images/language_illustration.webp',
                     width: 184,
                     height: 184,
                     fit: BoxFit.contain,
