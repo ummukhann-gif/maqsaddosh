@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'cinematic_intro_screen.dart';
 
 class LanguageSelectionScreen extends StatefulWidget {
   const LanguageSelectionScreen({super.key});
@@ -76,25 +77,55 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
                   _LanguageButton(
                     text: "O'zbekcha",
                     isSelected: _selectedIndex == 0,
-                    onTap: () => setState(() => _selectedIndex = 0),
+                    onTap: () {
+                      setState(() => _selectedIndex = 0);
+                      _navigateToIntro(AppLanguage.uzbek);
+                    },
                   ),
                   const SizedBox(height: 5), // Gap 5px
                   _LanguageButton(
                     text: "English",
                     isSelected: _selectedIndex == 1,
-                    onTap: () => setState(() => _selectedIndex = 1),
+                    onTap: () {
+                      setState(() => _selectedIndex = 1);
+                      _navigateToIntro(AppLanguage.english);
+                    },
                   ),
                   const SizedBox(height: 5), // Gap 5px
                   _LanguageButton(
                     text: "Русский",
                     isSelected: _selectedIndex == 2,
-                    onTap: () => setState(() => _selectedIndex = 2),
+                    onTap: () {
+                      setState(() => _selectedIndex = 2);
+                      _navigateToIntro(AppLanguage.russian);
+                    },
                   ),
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _navigateToIntro(AppLanguage language) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            CinematicIntroScreen(language: language),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0); // Slide from right
+          const end = Offset.zero;
+          const curve = Curves.ease;
+
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
       ),
     );
   }
