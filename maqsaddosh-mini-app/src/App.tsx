@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SplashScreen from './pages/SplashScreen';
 import LoginScreen from './pages/LoginScreen';
 import LanguageSelectionScreen from './pages/LanguageSelectionScreen';
+import FigmaHomeScreen from './pages/FigmaHomeScreen';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Route path="/" element={<SplashScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/language" element={<LanguageSelectionScreen />} />
+        <Route path="/home" element={<FigmaHomeScreen />} />
       </Routes>
     </BrowserRouter>
   );

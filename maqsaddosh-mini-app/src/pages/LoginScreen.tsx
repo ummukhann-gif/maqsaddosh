@@ -42,8 +42,7 @@ const LoginScreen: React.FC = () => {
                 <button
                     type="button"
                     onClick={() => {
-                        // Future: Telegram authentication logic here
-                        // navigate('/dashboard');
+                        navigate('/home');
                     }}
                     className="absolute left-[69px] top-[469px] flex h-[59px] w-[247px] items-center justify-center rounded-[18px] bg-[#239CD7] font-sans text-[15px] font-medium text-white transition-opacity active:opacity-80 outline-none gap-2"
                 >
@@ -60,7 +59,7 @@ const LoginScreen: React.FC = () => {
                 <button
                     type="button"
                     onClick={() => {
-                        navigate('/language');
+                        navigate('/home');
                     }}
                     className="absolute left-[47px] top-[691px] flex h-[60px] w-[290px] items-center justify-center rounded-[18px] bg-[rgba(255,255,255,0.05)] font-sans text-[15px] font-medium text-white transition-colors active:bg-[rgba(255,255,255,0.1)] outline-none"
                 >
