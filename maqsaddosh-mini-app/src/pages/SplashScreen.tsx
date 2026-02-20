@@ -2,36 +2,31 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const SplashScreen: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        // Navigate to Language Selection after 3 seconds
-        const timer = setTimeout(() => {
-            navigate('/language');
-        }, 3000);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      navigate('/language', { replace: true });
+    }, 3000);
 
-        return () => clearTimeout(timer);
-    }, [navigate]);
+    return () => window.clearTimeout(timer);
+  }, [navigate]);
 
-    return (
-        <div className="flex flex-col items-center justify-between min-h-screen bg-[#161616] relative overflow-hidden">
-            {/* Centered Logo */}
-            <div className="flex-grow flex items-center justify-center">
-                <img
-                    src="/assets/images/splash_logo.svg"
-                    alt="Maqsaddosh Logo"
-                    className="w-[108px] h-[60px]"
-                />
-            </div>
-
-            {/* Version Text at Bottom */}
-            <div className="pb-8">
-                <p className="font-sans font-normal text-xs leading-6 text-white/40 text-center">
-                    Версия 001
-                </p>
-            </div>
-        </div>
-    );
+  return (
+    <div className="relative min-h-dvh w-full overflow-hidden bg-[#161616]">
+      <div className="relative mx-auto h-dvh w-full max-w-[384px]">
+        <img
+          src="/assets/images/splash_logo.svg"
+          alt="Maqsaddosh Logo"
+          className="absolute left-1/2 top-1/2 h-[60px] w-[108px] -translate-x-1/2 -translate-y-1/2"
+          draggable={false}
+        />
+        <p className="absolute bottom-[34px] left-1/2 -translate-x-1/2 text-center font-sans text-[12px] font-normal leading-[18px] text-white/40">
+          Версия 001
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default SplashScreen;
