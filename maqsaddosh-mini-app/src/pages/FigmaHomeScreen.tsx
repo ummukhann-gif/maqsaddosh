@@ -22,7 +22,7 @@ const CategoryCard = ({
 const FigmaHomeScreen: React.FC = () => {
     return (
         <div className="relative min-h-dvh w-full overflow-hidden bg-[#161616] flex flex-col">
-            <div className="relative mx-auto min-h-dvh h-full w-full max-w-[430px] bg-[#161616] flex flex-col">
+            <div className="relative mx-auto h-dvh w-full max-w-[430px] bg-[#161616] flex flex-col">
 
                 {/* Background Decorative Mask */}
                 <div className="absolute w-full top-[69px] px-[32px] pointer-events-none">
